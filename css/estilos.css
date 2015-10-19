@@ -1,0 +1,35 @@
+a:link {text-decoration: none;color:#FFFFFF}
+a:visited {text-decoration: none;color:#FFFFFF}
+a:hover {text-decoration: underline; color:#FFFFFF}
+a:active {text-decoration: none;color:#FFFFFF}
+
+body{
+	background: url('../imagens/bg.jpg') repeat-x #ffffff; 
+	margin: 0 0 0 0;
+	color:#666666;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.caixa
+   {
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #666666;
+	background-color: #fbfbfb;
+	border: 1px solid #dddbdb;
+   	width:450px;
+   	padding: 5px;
+	} 
+
+.barraTitulo{
+	padding:15px;
+	background:url('../imagens/bg.jpg') repeat-x; 
+	color:#FFFFFF; 
+	text-align: center;	
+	border-right:1px solid #dddbdb;
+}
+
+td{
+	font-size: 12px;
+}
+

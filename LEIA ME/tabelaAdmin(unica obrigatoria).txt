@@ -1,0 +1,38 @@
+-- phpMyAdmin SQL Dump
+-- version 2.10.1
+-- http://www.phpmyadmin.net
+-- 
+-- Servidor: localhost
+-- Tempo de Geração: Jul 30, 2011 as 11:28 AM
+-- Versão do Servidor: 5.0.45
+-- Versão do PHP: 5.2.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Banco de Dados: `sgc`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Estrutura da tabela `admin`
+-- 
+
+CREATE TABLE `admin` (
+  `id` int(15) NOT NULL auto_increment,
+  `apelido` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `permissao` varchar(255) NOT NULL,
+  `tipo` enum('Administrador','Usuário') NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Extraindo dados da tabela `admin`
+-- 
+
+INSERT INTO `admin` (`id`, `apelido`, `nome`, `login`, `senha`, `permissao`, `tipo`) VALUES 
+(1, 'Admin', 'Administrador', 'admin', 'admin', '0,1,2,3,4,5,6,7,8,9', 'Administrador');

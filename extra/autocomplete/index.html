@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script type="text/javascript" src="js/autocomplete.js"></script>
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/autocomplete.css">
+
+</head>
+<body>
+<h1>Exemplo de auto complete em Ajax</h1>
+Desenvolvido por Wellington Ribeiro
+<h2><a href="http://www.idealmind.com.br">www.idealmind.com.br</a></h2>
+		    		<input type='text' name='clientes' value='' style='width:150px; border:1px solid #c5c4c9' id='clientes'  /><input type='hidden' id='clientes_val' name='id_clientes'/>
+					    <script>
+						    $(document).ready(function(){
+							new Autocomplete('clientes', function() {
+								this.setValue = function(id) {
+									$('#clientes_val').val(id);
+								}
+								if ( this.isModified )
+									this.setValue('');
+								if ( this.value.length < 1 && this.isNotClick ) 
+									return ;
+								return 'ajax.php?q=' + this.value;
+							});
+						
+						});
+						</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+#divMenu a       {color:#999999; text-decoration:underline;}
+#divMenu a:hover {color:#333333; text-decoration:underline;}
+
+#divBg           {position:relative; z-index:10; width:504px; height:65px; clip:rect(0px 0px 20px 800px); visibility:hidden;}
+#divMenu         {position:relative; z-index:11; height:65px; width:504px; top:10px; color:#333333; font-size:13px; font-family:verdana,arial,helvetica,sans-serif; visibility:inherit;}
+#divArrowLeft    {position:absolute; z-index:12; width:16px; height:60px; left:0px; top:0px; visibility:inherit;}
+#divArrowRight   {position:absolute; z-index:12; width:16px; height:60px; right:0px; top:0px; visibility:inherit;}

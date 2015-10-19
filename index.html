@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  	<title>SGC - Sistema de Gerenciamento de Conteúdo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<script type="text/javascript" src="extra/autocomplete/js/jquery-1.3.2.min.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#logar").click( function(){
+				$().ajaxStart(function() { $('#msg_sucesso').show(); });
+				var login = $('#login').val();
+				var senha = $('#senha').val(); 
+				if(!login || !senha){
+					$("#msg_sucesso").text("* Preencha todos os campos!"); 
+					$('#msg_sucesso').show();
+				}else{
+					$("#msg_sucesso").text("Analisando dados..."); 
+					$.post("logar.php",{login: login, senha: senha},function(data){
+						$("#msg_sucesso").text(data); 
+						if(data=="Validação aceita"){
+							location.href="index.php";
+						}
+					}); 
+				}
+			}); 
+		});
+	</script>
+	
+</head>
+<body bgcolor="#f9f9f9" style="padding-top: 40px">
+<table cellpadding="0" cellspacing="0" border="0" style="height:342px; width:360px;" align="center">
+	<tr>
+		<td style="height:342px; width:360px; background:url('imagens/login.jpg') no-repeat; text-align:center">		
+			<form id="formEnvia" name="formEnvia" action="#" method="post">
+				<table cellpadding="0" cellspacing="0" border="0" style="width:360px; height:342px">
+					<tr>
+						<td valign="bottom" align="left" height="49%" style="padding:0 0 4px 43px;">
+							<input type="text" id="login" name="login" onfocus="this.style.backgroundColor='#f9f2cb'" onblur="this.style.backgroundColor='transparent'" style="font-size: 16px; font-family: Verdana; width:260px; border:0px; background-color:transparent; color:#464444"/>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top" align="left" height="25%" style="padding:46px 0 0 43px;">
+							<input type="password" id="senha" name="senha" onfocus="this.style.backgroundColor='#f9f2cb'" onblur="this.style.backgroundColor='transparent'" style="font-size: 16px; font-family: Verdana; width:260px; border:0px; background-color:transparent; color:#464444"/>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top" align="right" height="33%" style="padding:5px 43px 0 0;">
+							<div id="msg_sucesso" style="float:left; display:none; padding:10px 0 0 40px; font-family:Verdana; font-size:12px; color:#990000">Analisando dados...</div>
+							<input type="image" src="imagens/logar.jpg" name="logar" id="logar" style="float:right" onclick="return false"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

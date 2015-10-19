@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<title>FancyBox - fancy image zooming tool</title>
+	<link rel="stylesheet" type="text/css" href="/style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/fancybox/fancy.css" media="screen" />
+	<script type="text/javascript" src="/fancybox/jquery-1.2.3.pack.js"></script>
+	<script type="text/javascript" src="/fancybox/jquery.metadata.js"></script>
+	<script type="text/javascript" src="/fancybox/jquery.pngFix.pack.js"></script>
+	<script type="text/javascript" src="/fancybox/jquery.fancybox-1.0.0.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//Activate FancyBox
+			$("p#test1 a").fancybox({
+				'hideOnContentClick': true
+			});
+			
+			$("p#test2 a").fancybox({
+				'zoomSpeedIn':	0, 
+				'zoomSpeedOut':	0, 
+				'overlayShow':	true
+			});
+			
+			$("a#custom_1").fancybox({
+				'itemLoadCallback': getGroupItems
+			});
+			
+			$("a#custom_2, a#custom_3").fancybox({
+				'zoomSpeedIn':	0, 
+				'zoomSpeedOut':	0
+			});
+			
+			//Some lines for this page
+			$("div#donate").bind("click", function() {
+				$("#donate_form").submit()
+			});
+			
+			$("#comment_form").attr("action", "/fancy/add_comment"); $("#age").val('fancy'); //die spamers, die...
+		});
+
+		//List can contain mixed media too
+		//Parameter "o" ir optional and used to override settings, example: {url: "http://www.google.com", title: false,  o: {'frameWidth': 200} }
+		var imageList = [
+			{url: "/img/examples/6_b.jpg", title: "First image"},
+			{url: "/img/examples/7_b.jpg", title: "Second image"},
+			{url: "/img/examples/8_b.jpg", title: "Third image"}
+		];
+		
+		function getGroupItems(opts) {
+			jQuery.each(imageList, function(i, val) {
+		        opts.itemArray.push(val);
+		    });
+		}
+		
+	</script>
+</head>
+<body>
+    <div id="wrapper">
+    	<div id="header">
+    		<h1><a href="/">Fancybox - simple and fancy jquery plugin</a></h1>
+    		<div><a href="/fancybox/fancybox_1.0.0.zip"><img id="download" src="/img/down.png" alt="Download" style="width:162px;height:46px;" /></a></div>
+    	</div>
+		<div id="content">
+			<div id="col_left">
+				<h1>About</h1>
+				<p>
+					Why? Because I was bored by so many pages using lightbox and it`s clones, <br /> I wanted something fresh and Mac-like. I couldn`t find any cool alternative that would be build on top of jQuery, so the FancyBox was born. <b>Features</b>:
+				</p>
+				<ul>
+					<li>Automatically scales large images to fit in window</li>
+					<li>Adds a nice drop shadow under the zoomed item</li>
+					<li>Groups related items and adds navigation through them (uses preloading)</li>
+					<li>Can display images, inline and iframed content</li>
+					<li>Customizable through settings and CSS</li>
+				</ul>
+
+				<h1>Examples</h1>
+				<p id="test1">
+					<b>Fancy single images</b>
+					
+					<br />
+					
+					<a href="/img/examples/1_b.jpg"><img alt="" src="/img/examples/1_s.jpg" /></a>
+
+					<a title="Very fancy caption to this image" href="/img/examples/2_b.jpg"><img alt="" src="/img/examples/2_s.jpg" /></a>
+					
+					<a title="This is the ART" href="/img/examples/13_b.jpg"><img alt="" src="/img/examples/13_s.jpg" /></a>
+				</p>
+				<p id="test2">
+					<b>Grouped images (no zooming animation, adds overlay)</b>
+					
+					<br />
+					
+					<a rel="group1" href="/img/examples/4_b.jpg"><img alt="" src="/img/examples/4_s.jpg" /></a>
+
+					<a rel="group1" title="Very fancy caption to this image" href="/img/examples/5_b.jpg"><img alt="" src="/img/examples/5_s.jpg" /></a>
+					
+					<a rel="group1" title="Life" href="/img/examples/10_b.jpg"><img alt="" src="/img/examples/10_s.jpg" /></a>
+				</p>
+				<p id="test4">
+					<b>More usage examples</b>
+				</p>
+									
+				<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<th>Custom defined image set</th>
+					<th>Inline content</th>
+					<th>Iframed content</th>
+				</tr>
+				<tr>
+					<td><a id="custom_1" href="javascript:;"><img alt="" src="/img/examples/6_s.jpg" /></a></td>
+					<td><a id="custom_2" href="#testube" class="{frameWidth: 425, frameHeight: 355}"><img alt="" src="/img/examples/15_s.jpg" /></a></td>
+					<td><a id="custom_3" href="http://www.google.com/"><img alt="" src="/img/examples/16_s.jpg" /></a></td>
+				</tr>
+				</table>
+
+				<div style="display:none" id="testube">
+					<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/-_jhdZoPW1Q&hl=en"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/-_jhdZoPW1Q&hl=en" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
+				</div>
+				
+								
+				<h1>Changelog</h1>
+				<br />
+				<table cellpadding="0" cellspacing="0" class="changelog">
+				<tr valign="top">
+					<td><em>29/04/08 - &nbsp;</em></td><td>Fixed bug for Opera and Safari when images did not load on second click</td>
+				</tr>
+				<tr>
+					<td><em>24/04/08 - &nbsp;</em></td><td>First release</td>
+				</tr>
+				</table>
+				
+				
+				<h1>How to use</h1>
+
+				<p>
+					<b>1. Setup</b>
+					
+					<br />
+					
+					Include nessesary JS files (FancyBox uses pngFix to fix IE png transparency).
+				
+				
+<code>/* required */
+&lt;script type="text/javascript" src="js/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/jquery.fancybox.js"&gt;&lt;/script&gt;
+/* optional */
+&lt;script type="text/javascript" src="js/jquery.pngFix.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/jquery.metadata.js"&gt;&lt;/script&gt;
+</code>
+					Include FancyBox CSS file. Dont forget to change image paths.
+					
+<code>&lt;link rel="stylesheet" href="css/fancybox.css" type="text/css" media="screen"&gt;</code>
+
+					<b>2. Add your images</b>
+					
+					<br />
+					
+					Add images and wrap them with a link to the zoomed version
+<code>&lt;a href="image_big.jpg"&gt;&lt;img src="image_small.jpg" alt=""/&gt;&lt;/a&gt;</code>
+
+					Optional: Use the <em>title</em> attribute if you want to show a caption
+					
+					<br />
+					
+					Optional: Use the <em>rel</em> attribute to group images
+					
+					<br />
+					<br />
+					
+					<b>3. Use the plugin</b>
+					
+					<br />
+					
+					Sample examples:
+					
+<code>$(document).ready(function() {
+	$("p#test1 a").fancybox();
+	
+	$("p#test2 a").fancybox({
+		'hideOnContentClick': true
+	});
+
+	$("p#test3 a").fancybox({
+		'zoomSpeedIn':	0, 
+		'zoomSpeedOut':	0, 
+		'overlayShow':	true
+	});
+});
+</code>
+				</p>
+				<p>
+					<b>Available options</b>
+				</p>
+				
+				<table class="options" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>hideOnContentClick</td>
+					<td>Hides FancyBox when cliked on zoomed item <br /> (false by default)</td>
+				</tr>
+				<tr>
+					<td>zoomSpeedIn</td>
+					<td>Speed in miliseconds of the zooming-in animation <br /> (no animation if 0)</td>
+				</tr>
+				<tr>
+					<td>zoomSpeedOut</td>
+					<td>Speed in miliseconds of the zooming-out animation <br /> (no animation if 0)</td>
+				</tr>
+				<tr>
+					<td>frameWidth</td>
+					<td>Default width for iframed and inline content</td>
+				</tr>
+				<tr>
+					<td>frameHeight</td>
+					<td>Default height for iframed and inline content</td>
+				</tr>
+				<tr>
+					<td>overlayShow</td>
+					<td>If true, shows the overlay (false by default)</td>
+				</tr>
+				<tr>
+					<td>overlayOpacity</td>
+					<td>Opacity of overlay (from 0 to 1)</td>
+				</tr>
+				<tr>
+					<td>itemLoadCallback</td>
+					<td>Custom function to get group items <br /> (see example on this page source)</td>
+				</tr>
+				</table>
+				
+				<a name="comment_form"></a>
+				<h1>Comments</h1>
+				
+				<p>&nbsp;<b>1</b>&nbsp;<a href="http://fancy.klade.lv/fancy/index/10">2</a>&nbsp;<a href="http://fancy.klade.lv/fancy/index/20">3</a>&nbsp;<a href="http://fancy.klade.lv/fancy/index/10">&gt;</a>&nbsp;&nbsp;<a href="http://fancy.klade.lv/fancy/index/580">Last &rsaquo;</a></p>
+				
+				<div class="comments">
+		<div class="comment_body">How do link from inside an iframe and display the image in the parent frame ( so outsite the iframe</div>
+	<div class="comment_info">Posted by <b>dutchman</b> at 2008/10/10 20:37</div>
+		<div class="comment_body">I love this FancyBox! :)</div>
+	<div class="comment_info">Posted by <b><a target="blank" href="http://www.plumts.com">Nemanja cosovic</a></b> at 2008/10/10 20:03</div>
+		<div class="comment_body">Hi<br />
+I've got this working ok but can't find jquery.metadata.js in the Download.<br />
+What is this ? do I need it - have I got it or where do I find it ?<br />
+<br />
+Thanks</div>
+	<div class="comment_info">Posted by <b>John</b> at 2008/10/10 20:00</div>
+		<div class="comment_body">Hi<br />
+<br />
+Thanks for a great script. However, I need to point out that it does not work in Konqueror on Ubuntu 8.04. Have you done any testing for Konqueror at all?</div>
+	<div class="comment_info">Posted by <b>Tash</b> at 2008/10/10 16:54</div>
+		<div class="comment_body">Just a question: is there any way to deactivate the auto resizing function, as I got some scans from magazines, where the text becomes unreadable when resized</div>
+	<div class="comment_info">Posted by <b>ilja</b> at 2008/10/10 16:16</div>
+		<div class="comment_body">Argh! Try my website: http://www.sivuttajat.net/demo/fancybox</div>
+	<div class="comment_info">Posted by <b><a target="blank" href="http://www.sivuttajat.net/demo/fancybox">ocean</a></b> at 2008/10/10 01:29</div>
+		<div class="comment_body">Damn quotes, let's try with different ones:<br />
+<br />
+url = url.replace(/ü/g, &quot;</div>
+	<div class="comment_info">Posted by <b>ocean</b> at 2008/10/10 01:23</div>
+		<div class="comment_body">After banging my head against the wall for hours I figured out how to make fancybox IE6/umlaut -compatible. For example, if you have an image named &quot;tänne.jpg&quot;, IE6 cannot urlencode the character &quot;ä&quot; correctly.<br />
+<br />
+Just add this line after this line: var url = opts.itemArray[n].url; (line 108)<br />
+<br />
+url = url.replace(/ü/g, '</div>
+	<div class="comment_info">Posted by <b><a target="blank" href="http://www.sivuttajat.net/demo">ocean</a></b> at 2008/10/10 01:17</div>
+		<div class="comment_body">hello<br />
+<br />
+nice script - will there be an update to fix some bugs?<br />
+<br />
+greetings momper</div>
+	<div class="comment_info">Posted by <b>momper</b> at 2008/10/09 23:59</div>
+		<div class="comment_body">Hey there!<br />
+Before all, thank you very much for your great resource.<br />
+<br />
+I don't know if you've been notified about IE7, Safari and Chrome audio error displaying embed source (like a YouTube video) under iframed content. This seems like a bug.<br />
+<br />
+I would know if you have some temporary fix to this?.<br />
+<br />
+If you want to know more information about this bug, you can contact me to the email address that i've put in this form.<br />
+<br />
+Best Regards,<br />
+<br />
+Juan Pablo Barrientos Lagos</div>
+	<div class="comment_info">Posted by <b><a target="blank" href="http://passnet.cl/">Juan Pablo Barrientos Lagos</a></b> at 2008/10/09 19:28</div>
+	</div>				
+				<p>&nbsp;<b>1</b>&nbsp;<a href="http://fancy.klade.lv/fancy/index/10">2</a>&nbsp;<a href="http://fancy.klade.lv/fancy/index/20">3</a>&nbsp;<a href="http://fancy.klade.lv/fancy/index/10">&gt;</a>&nbsp;&nbsp;<a href="http://fancy.klade.lv/fancy/index/580">Last &rsaquo;</a></p>
+				
+				<p><b>Post your comment</b></p>	
+				
+								<p>
+					<form id="comment_form" action="" method="post">
+					<label for="nick">Nick</label> <input type="text" id="nick" name="nick" value="" /> <em>(required)</em><br />
+					<label for="email">Email</label> <input type="text" id="email" name="email" value="" /> <em>(required, not shown)</em><br />
+					<label for="website">Website</label> <input type="text" id="website" name="website" value="" /> <br />
+					<label for="comment">Comment</label> <textarea id="comment" name="comment"></textarea>
+					<input type="hidden" name="age" id="age" value="" />
+					<input type="submit" value="Add" class="add" />
+					</form>
+				</p>
+			</div>
+			<div id="col_right">
+				<form id="donate_form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_donations">
+					<input type="hidden" name="business" value="janis.skarnelis@gmail.com">
+					<input type="hidden" name="item_name" value="FancyBox">
+					<input type="hidden" name="amount" value="10.00">
+					<input type="hidden" name="no_shipping" value="0">
+					<input type="hidden" name="logo_custom" value="http://donate.png">
+					<input type="hidden" name="no_note" value="1">
+					<input type="hidden" name="currency_code" value="EUR">
+					<input type="hidden" name="tax" value="0">
+					<input type="hidden" name="lc" value="LV">
+					<input type="hidden" name="bn" value="PP-DonationsBF">
+				</form>
+					
+				<div id="donate">
+					If you use FancyBox and like it, buy the author a beer! <img align="absmiddle" src="/img/donate.png" style="width:16px;height:16px;" alt="Donate" />
+				</div>
+				
+				<br />
+				<br />
+				
+				<script>
+					digg_url ='http://fancy.klade.lv/';
+				</script>
+				<script src="http://digg.com/api/diggthis.js"></script>
+
+			</div>
+			
+			<br clear="all" />
+			
+			<div id="footer">
+				2008 @ http://kac.klade.lv/
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4230547-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
