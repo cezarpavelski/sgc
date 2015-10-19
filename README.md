@@ -1,28 +1,19 @@
-# sgc
+# SGC
 Sistema de gerenciamento de conteúdo utilizando para administração de sites criado em 2010
 
-===========================================================================================================================================
-INSTALACAO
-===========================================================================================================================================
+## INSTALACAO
+
 Criar uma banco de dados qualquer e criar a tabela admin que esta no arquivo LEIA ME/tabelaAdmin(unica obrigatoria).txt, esta é a 
 única tabela obrigatória para o SGC.
 Alterar o arquivo model/Conexao.class.php com os dados do seu banco de dados
 
+## NOMENCLATURA DAS PAGINAS    
 
+### MODO DE UTILIZAR
 
+Copie o bloco de codigo abaixo e salve suas paginas dentro da pasta **paginas**
 
-===========================================================================================================================================
-NOMENCLATURA DAS PAGINAS    
-===========================================================================================================================================
-
-===========================================================================================================================================
-MODO DE UTILIZAR -> COPIE TODAS AS LINHAS ABAIXO
-		    TODAS AS PAGINAS NECESSITAM DESTE BLOCO DE CODIGOS
-                    AS PAGINAS DEVEM SER SALVAS DENTRO DA PASTA "paginas"
-===========================================================================================================================================
-
-
-
+```php
     //TITULO DA PAGINA
 	$tituloDaPagina = "telas do software";
 	
@@ -50,21 +41,12 @@ MODO DE UTILIZAR -> COPIE TODAS AS LINHAS ABAIXO
 			   complemento=>array("","","300","cidade|nome")
 			 ); 
 
+```
 
 
-===========================================================================================================================================
-PARAR DE COPIAR AS LINHAS
-===========================================================================================================================================
+## LEGENDA DE TIPOS PARA CADASTRO E LISTAGEM DE REGISTROS
 
-
-
-===========================================================================================================================================
-LEGENDA DE TIPOS PARA CADASTRO E LISTAGEM DE REGISTROS
-===========================================================================================================================================
-
-===========================================================================================================================================
-TIPOS PARA CADASTRO
-===========================================================================================================================================
+### TIPOS PARA CADASTRO
 
 	calendario => Coloca calendário na frente do input e formata a data no formato dd/mm/aaaa
 	data => cria um input text e formata a data no formato dd/mm/aaaa e valida a data
@@ -99,18 +81,14 @@ TIPOS PARA CADASTRO
 		|=>COMPLEMENTO => uso obrigatorio para o tipo checkBox Ex.: tabela|campo	
 				
 
-===========================================================================================================================================
-TIPOS PARA LISTAGEM
-===========================================================================================================================================
-
+### TIPOS PARA LISTAGEM
 
 	data => imprime a data na tela no formato dd/mm/aaaa
 	moeda => imprime o valor na tela no formato R$ 1.234,34
 	titulo => imprime o texto na tela utilizado para varchar
 	
 	texto => imprime o texto na tela utilizado para text
-		|=>COMPLEMENTO => imprime na tela a quantidade de caracteres desejado Ex.: 500,
-						  senao passado nenhum valor imprime o texto todo	
+		|=>COMPLEMENTO => imprime na tela a quantidade de caracteres desejado Ex.: 500, senao passado nenhum valor imprime o texto todo	
 	
 	arquivo => mostra o icone da extensão do arquivo ou o flash se a extensao for swf
 	imagem => mostra a miniatura da imagem na tela
