@@ -4,7 +4,7 @@
 
     <!-- Altere estas propriedades adequando-as ao seu projeto -->
     <property name="application.library" value="${project.basedir}"/>
-    <property name="application.tests" value="${project.basedir}/tests"/>
+    <property name="application.tests" value="${project.basedir}"/>
     <property name="application.builddir" value="${project.basedir}/build"/>
 
     <target name="build"
