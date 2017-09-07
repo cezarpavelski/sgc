@@ -1,5 +1,5 @@
 # SGC
-Sistema de gerenciamento de conteúdo utilizando para administração de sites criado em 2009
+Sistema de gerenciamento de conteúdo utilizando para administração de sites criado em 2008
 
 ## INSTALACAO
 
